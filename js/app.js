@@ -50,7 +50,6 @@ Enemy.prototype.update = function(dt) {
       player.removeLives();
     }
   }
-
 };
 
 // Draw the enemy on the screen.
@@ -128,6 +127,7 @@ Player.prototype.showLivesAndScore = function() {
       ctx.fillStyle = "yellow";
       ctx.font = "20px sans-serif";
       ctx.fillText("You Win!", 212, 572);
+      win.cancelAnimationFrame(main);
     }
   }
   // Else, show the losing notification.
@@ -138,7 +138,7 @@ Player.prototype.showLivesAndScore = function() {
       ctx.fillStyle = "yellow";
       ctx.font = "20px sans-serif";
       ctx.fillText("Game Over", 202, 572);
-      player.score = 0;
+      win.cancelAnimationFrame(main);
     }
   }
 };
