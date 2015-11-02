@@ -1,6 +1,4 @@
 frontend-nanodegree-arcade-game
 ===============================
 
-Students should use this rubric: https://www.udacity.com/course/viewer#!/c-ud015/l-3072058665/m-3072588797
-
-for self-checking their submission.
+This game works like Frogger. You use arrow keys to navigate and try to reach 10 points without losing 5 lives.
