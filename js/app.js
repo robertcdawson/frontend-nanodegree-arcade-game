@@ -82,7 +82,7 @@ Player.prototype.render = function() {
   ctx.drawImage(Resources.get(this.sprite), this.x, this.y);
   // player.showScore();
   // player.showLives();
-  player.showLivesAndScore();
+  this.showLivesAndScore();
 };
 
 // Move the player back to his or her initial position.
@@ -114,27 +114,29 @@ Player.prototype.removeLives = function() {
 Player.prototype.showLivesAndScore = function() {
   ctx.font = "16px sans-serif";
   // If the player has lives, show the score and life count.
-  if (player.lives > 0) {
+  if (this.lives > 0) {
     // If the score is less than 10, show the score and life count.
-    if (player.score < 10) {
+    if (this.score < 10) {
       ctx.fillStyle = "white";
-      ctx.fillText("Score: " + player.score + "/10", 7, 572);
+      ctx.fillText("Score: " + this.score + "/10", 7, 572);
       ctx.fillStyle = "yellow";
-      ctx.fillText("Lives: " + player.lives + "/5", 415, 572);
+      ctx.fillText("Lives: " + this.lives + "/5", 415, 572);
     }
     // Else, the show winning notification.
     else {
+      this.sprite = 'images/char-princess-girl.png';
       ctx.fillStyle = "yellow";
       ctx.font = "20px sans-serif";
-      ctx.fillText("You Win!", 212, 572);
-      win.cancelAnimationFrame(main);
+      ctx.fillText("You Did It!", 206, 572);
+      // Remove enemies, allowing princess to travel freely.
+      allEnemies = [];
     }
   }
   // Else, show the losing notification.
   else {
     // If the score is less than 10, show losing notification.
     // Else, show nothing.
-    if (player.score < 10) {
+    if (this.score < 10) {
       ctx.fillStyle = "yellow";
       ctx.font = "20px sans-serif";
       ctx.fillText("Game Over", 202, 572);
@@ -164,7 +166,6 @@ Player.prototype.handleInput = function(allowedKeys) {
       this.x = this.x;
     }
   } else if (allowedKeys === 'up') {
-    console.log(this.y);
     if (this.y >= 50) {
       this.y = this.moveUp;
     } else {
@@ -172,9 +173,9 @@ Player.prototype.handleInput = function(allowedKeys) {
       // the game should be reset by moving the player
       // back to his or her initial position.
       if (this.y === 0 && this.x === 200) {
-        player.addScore();
+        this.addScore();
       } else {
-        player.removeLives();
+        this.removeLives();
       }
       this.reset();
     }

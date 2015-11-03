@@ -33,6 +33,7 @@ var Engine = (function(global) {
    * and handles properly calling the update and render methods.
    */
   function main() {
+    "use strict";
     /* Get our time delta information which is required if your game
      * requires smooth animation. Because everyone's computer processes
      * instructions at different speeds we need a constant value that
@@ -135,7 +136,7 @@ var Engine = (function(global) {
       }
     }
 
-    ctx.drawImage(Resources.get(rock), 202, -20);
+    ctx.drawImage(Resources.get(rock), 202, -25);
 
     renderEntities();
   }
@@ -174,6 +175,7 @@ var Engine = (function(global) {
     'images/Rock.png',
     'images/enemy-bug.png',
     'images/char-horn-girl.png',
+    'images/char-princess-girl.png',
     'images/Star.png'
   ]);
   Resources.onReady(init);
