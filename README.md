@@ -1,7 +1,9 @@
 # Why Did the Princess Cross the Road?
 
 <p align="center">
-![Image of VW Beetle](https://raw.githubusercontent.com/robertcdawson/frontend-nanodegree-arcade-game/master/images/enemy-bug.png) ![Image of Xena Jr](https://raw.githubusercontent.com/robertcdawson/frontend-nanodegree-arcade-game/master/images/char-horn-girl.png) ![Image of Royal Rock](https://raw.githubusercontent.com/robertcdawson/frontend-nanodegree-arcade-game/master/images/Rock.png)
+<img src="https://raw.githubusercontent.com/robertcdawson/frontend-nanodegree-arcade-game/master/images/enemy-bug.png" alt="Image of VW Beetle">
+<img src="https://raw.githubusercontent.com/robertcdawson/frontend-nanodegree-arcade-game/master/images/char-horn-girl.png" alt="Image of Xena Jr">
+<img src="https://raw.githubusercontent.com/robertcdawson/frontend-nanodegree-arcade-game/master/images/Rock.png" alt="Image of Royal Rock">
 </p>
 
 ## To become a warrior!
