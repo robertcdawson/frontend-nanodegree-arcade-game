@@ -13,3 +13,7 @@ In this game, you play **Xena Jr**, a baby warrior princess. To win, you must tr
 Yet, do not assume that one such crossing will suffice! Nay, this is no trifling test, little lass. To become a truly mature and mighty warrior, you must mount the Mountain *10 times* without losing all 5 of your divinely bestowed lives. Each time you reach your destination, you will be teleported back to the Plain of Pity where you began.
 
 Do you accept this challenge? Will you become the mighty warrior princess you were always meant to be? Play now and find out!
+
+#### How to Get Started
+
+To play this game, either clone or download [this repository](https://github.com/robertcdawson/frontend-nanodegree-arcade-game.git) and open index.html in your favorite browser.
