@@ -17,3 +17,8 @@ Do you accept this challenge? Will you become the mighty warrior princess you we
 #### How to Get Started
 
 To play this game, either clone or download [this repository](https://github.com/robertcdawson/frontend-nanodegree-arcade-game.git) and open index.html in your favorite browser.
+
+#### How to Play
+
+To play, use the arrow keys to move up, down, left, and right. No other keys or mouse interaction is necessary. Enjoy!
+
