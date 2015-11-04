@@ -3,7 +3,7 @@
 var Enemy = function(x, y) {
   // Set the enemy's image and dimensions.
   this.sprite = 'images/enemy-bug.png';
-  this.width = 100;
+  this.width = 70;
   this.height = 70;
   // Set the enemy's initial location.
   this.x = x;
@@ -41,14 +41,15 @@ Enemy.prototype.update = function(dt) {
   }
 
   // Handle collision with the player.
-  if (player.x >= this.x - (this.width / 2) &&
-    player.x <= this.x + (this.width / 2) &&
-    player.y >= this.y - (this.height / 2) &&
-    player.y <= this.y + (this.height / 2)) {
-    player.reset();
-    if (player.score < 10) {
-      player.removeLives();
-    }
+  // Ref: https://developer.mozilla.org/en-US/docs/Games/Techniques/2D_collision_detection
+  if (player.x < this.x + this.width &&
+    player.x + player.width > this.x &&
+    player.y < this.y + this.height &&
+    player.height + player.y > this.y) {
+     player.reset();
+     if (player.score < 10) {
+       player.removeLives();
+     }
   }
 };
 
@@ -63,6 +64,10 @@ var Player = function(x, y) {
   // Load the player's image by setting this.sprite
   // to the appropriate image in the image folder.
   this.sprite = 'images/char-horn-girl.png';
+  this.width = 70;
+  this.height = 70;
+  // Add audio property.
+  this.audio = document.getElementById("audio");
   // Set the player's initial location.
   this.x = x;
   this.y = y;
@@ -71,10 +76,10 @@ var Player = function(x, y) {
 // Update the player's position.
 // Parameter: dt, a time delta between ticks
 Player.prototype.update = function() {
-  this.moveLeft = this.x - 50;
-  this.moveRight = this.x + 50;
-  this.moveUp = this.y - 50;
-  this.moveDown = this.y + 50;
+  this.moveLeft = this.x - 41;
+  this.moveRight = this.x + 41;
+  this.moveUp = this.y - 41;
+  this.moveDown = this.y + 41;
 };
 
 // Draw the player on the screen.
@@ -154,7 +159,6 @@ Player.prototype.handleInput = function(allowedKeys) {
   // Check for off-screen movement and handle appropriately.
   if (allowedKeys === 'left') {
     if (this.x >= 50) {
-      // this.x = this.x - 50;
       this.x = this.moveLeft;
     } else {
       this.x = this.x;
@@ -185,6 +189,13 @@ Player.prototype.handleInput = function(allowedKeys) {
     } else {
       this.y = this.y;
     }
+  }
+  if (allowedKeys === 'left' ||
+      allowedKeys === 'right' ||
+      allowedKeys === 'up' ||
+      allowedKeys === 'down') {
+    audio.src = "audio/walk.wav";
+    audio.play();
   }
 };
 
